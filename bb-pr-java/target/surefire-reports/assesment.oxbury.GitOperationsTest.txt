@@ -1,0 +1,216 @@
+-------------------------------------------------------------------------------
+Test set: assesment.oxbury.GitOperationsTest
+-------------------------------------------------------------------------------
+Tests run: 53, Failures: 0, Errors: 53, Skipped: 0, Time elapsed: 0.406 s <<< FAILURE! - in assesment.oxbury.GitOperationsTest
+test01  Time elapsed: 0.289 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test01(GitOperationsTest.java:16)
+
+test02  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test02(GitOperationsTest.java:24)
+
+test03  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test03(GitOperationsTest.java:32)
+
+test04  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test04(GitOperationsTest.java:40)
+
+test05  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test05(GitOperationsTest.java:48)
+
+test06  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test06(GitOperationsTest.java:56)
+
+test07  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test07(GitOperationsTest.java:64)
+
+test08  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test08(GitOperationsTest.java:72)
+
+test09  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test09(GitOperationsTest.java:80)
+
+test10  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test10(GitOperationsTest.java:88)
+
+test11  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test11(GitOperationsTest.java:96)
+
+test12  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test12(GitOperationsTest.java:104)
+
+test13  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test13(GitOperationsTest.java:112)
+
+test14  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test14(GitOperationsTest.java:120)
+
+test15  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test15(GitOperationsTest.java:128)
+
+test16  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test16(GitOperationsTest.java:136)
+
+test17  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test17(GitOperationsTest.java:144)
+
+test18  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test18(GitOperationsTest.java:152)
+
+test19  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test19(GitOperationsTest.java:160)
+
+test20  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test20(GitOperationsTest.java:168)
+
+test21  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test21(GitOperationsTest.java:176)
+
+test22  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test22(GitOperationsTest.java:184)
+
+test23  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test23(GitOperationsTest.java:192)
+
+test24  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test24(GitOperationsTest.java:200)
+
+test25  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test25(GitOperationsTest.java:208)
+
+test26  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test26(GitOperationsTest.java:216)
+
+test27  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test27(GitOperationsTest.java:224)
+
+test28  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test28(GitOperationsTest.java:232)
+
+test29  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test29(GitOperationsTest.java:240)
+
+test30  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test30(GitOperationsTest.java:248)
+
+test31  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test31(GitOperationsTest.java:256)
+
+test32  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test32(GitOperationsTest.java:264)
+
+test33  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test33(GitOperationsTest.java:272)
+
+test34  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test34(GitOperationsTest.java:280)
+
+test35  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test35(GitOperationsTest.java:288)
+
+test36  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test36(GitOperationsTest.java:296)
+
+test37  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test37(GitOperationsTest.java:304)
+
+test38  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test38(GitOperationsTest.java:312)
+
+test39  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test39(GitOperationsTest.java:320)
+
+test40  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test40(GitOperationsTest.java:328)
+
+test41  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test41(GitOperationsTest.java:336)
+
+test42  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test42(GitOperationsTest.java:344)
+
+test43  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test43(GitOperationsTest.java:352)
+
+test44  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test44(GitOperationsTest.java:360)
+
+test45  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test45(GitOperationsTest.java:368)
+
+test46  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test46(GitOperationsTest.java:376)
+
+test47  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test47(GitOperationsTest.java:384)
+
+test48  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test48(GitOperationsTest.java:392)
+
+test49  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test49(GitOperationsTest.java:400)
+
+test50  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test50(GitOperationsTest.java:408)
+
+test51  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test51(GitOperationsTest.java:416)
+
+test52  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test52(GitOperationsTest.java:424)
+
+test53  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Parameter specified as non-null is null: method okhttp3.Request$Builder.post, parameter body
+	at assesment.oxbury.GitOperationsTest.test53(GitOperationsTest.java:432)
+
