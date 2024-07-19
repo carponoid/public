@@ -33,7 +33,7 @@ public class App {
     int agrsLength = args != null ? args.length : 0;
     String cmd = (agrsLength == 0) ? "help" : args[0];
     if (cmd == "help") {
-      System.out.println(GitOperations.helpText);
+      System.out.println(GitOperations.HELP_TEXT);
       return;
     }
 
@@ -59,7 +59,7 @@ public class App {
         case "decline" -> GitOperations.decline(remoteAPI, (agrsLength > 1) ? args[1] : null);
         case "close-branch" ->
         GitOperations.closeBranch(remoteAPI, (agrsLength > 1) ? Arrays.copyOfRange(args, 1, agrsLength - 1) : null);
-        default -> GitOperations.helpText;
+        default -> GitOperations.HELP_TEXT;
       };
 
     } catch (GitAPIException | IOException e) {

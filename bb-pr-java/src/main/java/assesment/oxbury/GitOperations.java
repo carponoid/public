@@ -4,6 +4,7 @@ package assesment.oxbury;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.CannotDeleteCurrentBranchException;
 import org.eclipse.jgit.api.errors.GitAPIException;
@@ -11,10 +12,13 @@ import org.eclipse.jgit.api.errors.InvalidRemoteException;
 import org.eclipse.jgit.api.errors.NotMergedException;
 import org.eclipse.jgit.api.errors.TransportException;
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.transport.RemoteConfig;
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import okhttp3.Credentials;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -23,9 +27,21 @@ import okhttp3.Response;
 
 public class GitOperations {
 
-    private static final String ERROR_TEXT = "Unexpected code ";
+    private static final String STR_CREDS;
+    private static final CredentialsProvider GIT_CREDS;
+    static {
+        String bbUserName = System.getenv("my_bitbucket_username");
+        String bUserPassword = System.getenv("my_bitbucket_app_password");
+        if ( StringUtils.isBlank(bbUserName) || StringUtils.isBlank(bUserPassword) ) {
+            throw new IllegalArgumentException("Invalid username or password");
+        }
+        STR_CREDS = Credentials.basic(bbUserName, bUserPassword);
+        GIT_CREDS = new UsernamePasswordCredentialsProvider(bbUserName, bUserPassword);        
 
-    public static final String helpText = """
+    }
+
+    private static final String ERROR_TEXT = "Unexpected code ";
+    public static final String HELP_TEXT = """
                     Tool that helps management of bitbucket pull requests from the commandline
 
             Usage: $(basename "$0") [$ACTION_LIST] [options]
@@ -98,6 +114,7 @@ public class GitOperations {
 
         Request.Builder reqBuilder = new Request.Builder()
                 .url(BITBUCKET_API_URL + url)
+                .addHeader("Authorization", STR_CREDS)
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Accept", "application/json");
         RequestBody body = null;
@@ -164,6 +181,7 @@ public class GitOperations {
                 git.fetch()
                         .setRemote(remote.getName())
                         .setRefSpecs(remote.getFetchRefSpecs())
+                        .setCredentialsProvider(GIT_CREDS)
                         .call();
             }
             // Get the branch name using PR id
@@ -211,11 +229,11 @@ public class GitOperations {
         if (args != null) {
             // Can accept max of 2 arguments
             if (args.length > 2) {
-                return helpText;
+                return HELP_TEXT;
             }
             if (args.length == 2) {
                 if (args[0] != "-D") {
-                    return helpText;
+                    return HELP_TEXT;
                 }
                 prID = args[1];
             } else if (args[0] != "-D") {
@@ -310,6 +328,7 @@ public class GitOperations {
         
         String remoteDefault = Git.lsRemoteRepository()
                 .setRemote("https://github.com/example")
+                .setCredentialsProvider(GIT_CREDS)
                 .callAsMap().get("HEAD").getTarget().getName();
         try (Git git = new Git(repository)) {
             return "Switched to " + git.checkout().setName(remoteDefault).call().getName();
