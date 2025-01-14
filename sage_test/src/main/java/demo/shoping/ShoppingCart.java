@@ -1,116 +1,97 @@
-package demo.shoping;
+package demo.shopping;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
+import static org.junit.Assert.*;
 
-import org.apache.commons.lang3.StringUtils;
+import org.junit.Test;
 
-import lombok.extern.java.Log;
+import demo.shoping.ShoppingCart;
 
-@Log
-public class ShoppingCart {
+public class ShoppingCartTest {
 
-    private Map<String, Item> items;
-    double totalTax;
-    double grandTotal;
-
-    public record Item(String name, float price, int quantity) {
-        public Item withAdditionalQuantity(int additionalQuantity) {
-            return new Item(name(), price(), quantity()+additionalQuantity);
-        }
+    private ShoppingCart createTestSubject() {
+        return new ShoppingCart();
     }
 
-    private float fixedTaxRate = 12.5f;
-    private static DecimalFormat decimalFormat;
-
-    static {
-        decimalFormat = new DecimalFormat("0.00");
-        decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddOrUpdateCartNullInput() {
+        createTestSubject().addOrUpdateCart(null, 10, 10);
     }
 
-    public ShoppingCart() {
-        items = new HashMap<>();
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddOrUpdateCartNullInput2() {
+        createTestSubject().addOrUpdateCart(null);
     }
 
-    /**
-     * Retrieves all items currently in the shopping cart.
-     * 
-     * @return A List of Item objects representing all items in the cart.
-     *         The list is created from the values of the internal items map.
-     *         If the cart is empty, an empty list is returned.
-     */
-    public List<Item> getItems() {
-        log.log(Level.FINE, "Getting items from shopping cart");
-        return items.values().stream().toList();
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddOrUpdateCartEmptyInput() {
+        createTestSubject().addOrUpdateCart("   ", 10, 10);
     }
 
-    /**
-     * Validates an item to ensure it meets the required criteria.
-     * 
-     * @param item The item to be validated. It should not be null, have a non-empty
-     *             name, and a positive quantity.
-     * @throws IllegalArgumentException If the item is null, has an empty name, or
-     *                                  has a quantity less than or equal to zero.
-     */
-    public void validateItem(Item item) {
-        log.log(Level.FINE, "Validating item");
-        if (item == null || !StringUtils.isNotBlank(item.name()) || item.price < 0 || item.quantity <= 0) {
-            log.log(Level.SEVERE, "Invalid item  \n" + item);
-            throw new IllegalArgumentException("Invalid item");
-        }
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddOrUpdateCartInvalidPrice() {
+        createTestSubject().addOrUpdateCart("Hovis", -50, 10);
     }
 
-    /**
-     * Updates the shopping cart with the given item. If the item already exists in
-     * the cart,
-     * its quantity is updated. Otherwise, the new item is added to the cart.
-     *
-     * @param item The item to be added or updated in the cart. Must not be null and
-     *             must pass validation.
-     * @throws IllegalArgumentException If the item is invalid (null, empty name, or
-     *                                  non-positive quantity).
-     */
-    public void addOrUpdateCart(Item item) {
-        validateItem(item);
-        if (items.containsKey(item.name().trim())) {
-            log.log(Level.FINE, "Product already exisits, updating cart" + item.name());
-            Item existingItem = items.get(item.name());
-            items.remove(item.name());
-            item = existingItem.withAdditionalQuantity(item.quantity());
-        } else {
-            log.log(Level.FINE, "Adding new product to cart" + item.name());
-        }
-        items.put(item.name().trim(), item);
-        updateTotals();
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddOrUpdateCartInvalidQuantity() {
+        createTestSubject().addOrUpdateCart("Hovis", 50, 0);
+
     }
 
-    /**
-     * Returns the grand total of all items in the cart, including tax.
-     */
-    private void updateTotals() {
-        double total = items.values().stream().mapToDouble(item -> item.price() * item.quantity()).sum();
-        totalTax = Math.ceil((total / 100) * fixedTaxRate);
-        grandTotal = Double.parseDouble(decimalFormat.format(total + totalTax));
-        log.log(Level.FINE, "Total Price : " + total + "\nTotal Tax : " + totalTax + "\nGrand Total : " + grandTotal);
+    @Test()
+    public void testAddCart() {
+        ShoppingCart subject = createTestSubject();
+        subject.addOrUpdateCart("Hovis", 39.99f, 1);
+        assertEquals(1, subject.getItems().size());
     }
 
+    @Test()
+    public void testAndAndUpdateCart() {
+        ShoppingCart subject = createTestSubject();
+        subject.addOrUpdateCart("Hovis", 39.99f, 1);
+        subject.addOrUpdateCart("Hovis", 39.99f, 4);
 
-    public void addOrUpdateCart(String name, float price, int quantity) {
-        log.log(Level.FINE, "Adding or updating cart with product" + name);
-        addOrUpdateCart(new Item(name, price, quantity));
-    }
-    
-    public double getTotalTax() {
-        return Math.ceil(totalTax);
+        assertEquals(5, subject.getItems().get(0).quantity());
     }
 
-    public double getGrandTotal() {
-        return grandTotal;
+    @Test()
+    public void testAndAndUpdateCart2() {
+        ShoppingCart subject = createTestSubject();
+        subject.addOrUpdateCart("Hovis", 39.99f, 1);
+        subject.addOrUpdateCart("Fairy", 99.99f, 1);
+        subject.addOrUpdateCart("Hovis", 39.99f, 4);
+
+        assertEquals(5,
+                subject.getItems().stream().filter(item -> item.name().equals("Hovis")).findFirst().get().quantity());
+    }
+
+    @Test()
+    public void testaddOrUpdateStep1() {
+        ShoppingCart subject = createTestSubject();
+        subject.addOrUpdateCart("Hovis", 39.99f, 5);
+        assertEquals(199.95,subject.getTotal(),0);
+    }
+
+    @Test()
+    public void testaddOrUpdateStep2() {
+        ShoppingCart subject = createTestSubject();
+        subject.addOrUpdateCart("Hovis", 39.99f, 5);
+        subject.addOrUpdateCart("Hovis", 39.99f, 3);
+        assertEquals(319.92,subject.getTotal(),0);
+    }
+
+    @Test()
+    public void testaddOrUpdateStep3() {
+        ShoppingCart subject = createTestSubject();
+        subject.addOrUpdateCart("Hovis", 39.99f, 1);
+        subject.addOrUpdateCart("Fairy", 99.99f, 1);
+        subject.addOrUpdateCart("Hovis", 39.99f, 1);
+        subject.addOrUpdateCart("Fairy", 99.99f, 1);
+        subject.calcGrandTotalWithTax();
+        assertEquals(35,subject.getTotalTax(),0);
+        assertEquals(314.96,subject.getGrandTotal(),0);
     }
 
     
+
 }
