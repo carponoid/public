@@ -3,11 +3,8 @@ package demo.shopping;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 import demo.shoping.ShoppingCart;
-
 
 public class ShoppingCartTest {
 
@@ -69,14 +66,32 @@ public class ShoppingCartTest {
     }
 
     @Test()
-    public void testGrandTotal() {
+    public void testaddOrUpdateStep1() {
+        ShoppingCart subject = createTestSubject();
+        subject.addOrUpdateCart("Hovis", 39.99f, 5);
+        assertEquals(199.95,subject.getTotal(),0);
+    }
+
+    @Test()
+    public void testaddOrUpdateStep2() {
+        ShoppingCart subject = createTestSubject();
+        subject.addOrUpdateCart("Hovis", 39.99f, 5);
+        subject.addOrUpdateCart("Hovis", 39.99f, 3);
+        assertEquals(319.92,subject.getTotal(),0);
+    }
+
+    @Test()
+    public void testaddOrUpdateStep3() {
         ShoppingCart subject = createTestSubject();
         subject.addOrUpdateCart("Hovis", 39.99f, 1);
         subject.addOrUpdateCart("Fairy", 99.99f, 1);
         subject.addOrUpdateCart("Hovis", 39.99f, 1);
         subject.addOrUpdateCart("Fairy", 99.99f, 1);
+        subject.calcGrandTotalWithTax();
         assertEquals(35,subject.getTotalTax(),0);
         assertEquals(314.96,subject.getGrandTotal(),0);
     }
+
+    
 
 }
