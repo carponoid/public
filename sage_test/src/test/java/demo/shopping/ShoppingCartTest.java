@@ -21,7 +21,7 @@ public class ShoppingCartTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testAddOrUpdateCartNullInput2() {
-        createTestSubject().updateCart(null);
+        createTestSubject().addOrUpdateCart(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
