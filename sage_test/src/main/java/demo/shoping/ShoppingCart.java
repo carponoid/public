@@ -74,7 +74,7 @@ public class ShoppingCart {
      * @throws IllegalArgumentException If the item is invalid (null, empty name, or
      *                                  non-positive quantity).
      */
-    public void updateCart(Item item) {
+    public void addOrUpdateCart(Item item) {
         validateItem(item);
         if (items.containsKey(item.name().trim())) {
             log.log(Level.FINE, "Product already exisits, updating cart" + item.name());
@@ -101,7 +101,7 @@ public class ShoppingCart {
 
     public void addOrUpdateCart(String name, float price, int quantity) {
         log.log(Level.FINE, "Adding or updating cart with product" + name);
-        updateCart(new Item(name, price, quantity));
+        addOrUpdateCart(new Item(name, price, quantity));
     }
     
     public double getTotalTax() {
